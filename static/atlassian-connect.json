@@ -1,0 +1,33 @@
+{{define "config"}}{
+    "key": "roomsync",
+    "name": "RoomSync",
+    "description": "Integration for syncing chat rooms over multiple apps",
+    "vendor": {
+        "name": "Kevin Wiesmueller",
+        "url": "https://github.com/kwiesmueller"
+    },
+    "links": {
+        "self": "{{.LocalBaseUrl}}/atlassian-connect.json",
+        "homepage": "{{.LocalBaseUrl}}/atlassian-connect.json"
+    },
+    "capabilities": {
+        "hipchatApiConsumer": {
+            "scopes": [
+                "send_notification"
+            ]
+        },
+        "installable": {
+            "callbackUrl": "{{.LocalBaseUrl}}/installable"
+        },
+        "configurable": {
+             "url": "{{.LocalBaseUrl}}/config"
+        },
+        "webhook": {
+            "url": "{{.LocalBaseUrl}}/hook",
+            "pattern": "",
+            "event": "room_message",
+            "name": "RoomSync"
+        }
+    }
+}
+{{end}}

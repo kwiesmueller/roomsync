@@ -1,0 +1,13 @@
+FROM scratch
+
+LABEL maintainer "kwiesmueller <kwiesmueller@seibert-media.net>"
+LABEL type "public"
+LABEL versioning "simple"
+
+ARG TOOL
+
+ADD ./build/ /
+ADD ./static/ /static
+COPY ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
+
+ENTRYPOINT ["./roomsync"]
